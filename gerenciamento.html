@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <script src="gerenciamento.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    </head>
+    <style>
+        body{
+            background: black;
+        }
+        #div-saldo, #div-meta-gain, #div-meta-loss{
+            color: white;
+        }
+        #div-win{
+            transition: 0.2s;
+            background-color: lightgreen;
+            height: 200px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #div-win:hover{
+            transition: 0.2s;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+        #div-loss{
+            transition: 0.2s;
+            background: rgb(250, 125, 125);
+            border-radius: 20px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #div-loss:hover{
+            transition: 0.2s;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+        #div-entrada{
+            border-radius: 20px;
+            background: white;
+            height: 200px;
+            text-align: center;
+        }
+        #div-menu{
+            color: white;
+            text-align: center;
+        }
+        #btnIniciar, #btnReset{
+            cursor: pointer;
+        }
+        #historico th, td{
+            color: white;;
+        }
+    </style>
+    <body>
+        <div class="fluid-container">
+            <div class="row">
+                <div class="col col-sm">
+                    <div id="div-saldo" onclick="definirSaldo()">
+                        <h3>Saldo Atual</h3>
+                        <h4 id="saldo">R$ 0,00</h4>
+                    </div>
+                </div>
+                <div class="col col-sm">
+                    <div id="div-meta-gain" onclick="definirGain()">
+                        <h3>Meta Gain</h3>
+                        <h4 id="metagain">0%</h4>
+                    </div>
+                </div>
+                <div class="col col-sm">
+                    <div id="div-meta-gain" onclick="definirLoss()">
+                        <h3>Meta Loss</h3>
+                        <h4 id="metaloss">0%</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-sm">
+                    <div id="div-win" onclick="win()">
+                        <h4>Win</h4>
+                    </div>
+                </div>
+                <div class="col col-sm">
+                    <div id="div-entrada">
+                        <p>1° Entrada</p>
+                        <input type="number" id="1entrada">
+                        <p>Proteção</p>
+                        <input type="number" id="protecao">
+                    </div>
+                </div>
+                <div class="col col-sm">
+                    <div id="div-loss" onclick="loss()">
+                        <h4>Loss</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-sm">
+                    <div id="div-menu">
+                        <p onclick="iniciar()" id="btnIniciar">Iniciar</p><br>
+                        <p onclick="reset()" id="btnReset">Reset</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="historico">
+                    <table>
+                        <thead>
+                            <th>
+                                Entrada
+                            </th>
+                            <th>
+                                
+                            </th>
+                            <th>
+                                Lucro
+                            </th>
+                        </thead>
+                        <tbody id="tabela-historico">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
